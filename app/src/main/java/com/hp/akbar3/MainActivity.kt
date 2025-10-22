@@ -24,20 +24,23 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.apply {
-            nama = isinama.text.toString();
-            if (rdb1.isChecked) {
-                jk = "laki"
-            }
-            if(rdb2.isChecked) {
-                jk = "perempuan"
-            }
-            cekSetuju = checkAgree.isChecked
-            val intent = Intent(this@MainActivity, HasilActivity::class.java)
-                .putExtra(DATA_NAMA, nama)
-                .putExtra(DATA_JK, jk)
-                .putExtra(DATA_SETUJU, cekSetuju)
+            btnSubmit.setOnClickListener {
+                nama = isinama.text.toString();
+                if (rdb1.isChecked) {
+                    jk = "laki"
+                }
+                if(rdb2.isChecked) {
+                    jk = "perempuan"
+                }
+                cekSetuju = checkAgree.isChecked
+                val intent = Intent(this@MainActivity, HasilActivity::class.java)
+                    .putExtra(DATA_NAMA, nama)
+                    .putExtra(DATA_JK, jk)
+                    .putExtra(DATA_SETUJU, cekSetuju)
 
-            startActivity(intent)
+                startActivity(intent)
+            }
+
         }
 
     }
